@@ -30,3 +30,54 @@
 2026-05-14 00:31:53,376 - INFO - Saved CSV: data\cleaned_data.csv
 2026-05-14 00:31:53,377 - INFO - Saved DB: data\real_estate.db
 2026-05-14 00:31:53,382 - INFO - PIPELINE COMPLETED
+2026-06-04 21:39:28,762 - INFO - ============================================================
+2026-06-04 21:39:28,763 - INFO - START CRAWLER at 2026-06-04 21:39:28.763137
+2026-06-04 21:39:28,763 - INFO - ============================================================
+2026-06-04 21:39:28,780 - INFO - Loaded ids: 403
+2026-06-04 21:39:29,678 - INFO - [IDs] page 1: +18 mới, tổng 421
+2026-06-04 21:39:31,957 - INFO - [IDs] page 2: +19 mới, tổng 440
+2026-06-04 21:39:34,165 - INFO - [IDs] page 3: +20 mới, tổng 460
+2026-06-04 21:39:36,501 - INFO - [IDs] page 4: +18 mới, tổng 478
+2026-06-04 21:39:38,647 - INFO - [IDs] page 5: +20 mới, tổng 498
+2026-06-04 21:39:40,867 - INFO - [IDs] page 6: +17 mới, tổng 515
+2026-06-04 21:39:43,693 - INFO - [IDs] page 7: +19 mới, tổng 534
+2026-06-04 21:39:46,231 - INFO - [IDs] page 8: +20 mới, tổng 554
+2026-06-04 21:39:49,496 - INFO - [IDs] page 9: +19 mới, tổng 573
+2026-06-04 21:39:52,425 - INFO - [IDs] page 10: +20 mới, tổng 593
+2026-06-04 21:39:55,536 - INFO - [IDs] page 11: +20 mới, tổng 613
+2026-06-04 21:39:58,578 - INFO - [IDs] page 12: +20 mới, tổng 633
+2026-06-04 21:40:00,987 - INFO - [IDs] page 13: +19 mới, tổng 652
+2026-06-04 21:40:04,070 - INFO - [IDs] page 14: +20 mới, tổng 672
+2026-06-04 21:40:07,532 - INFO - [IDs] page 15: +19 mới, tổng 691
+2026-06-04 21:40:10,513 - INFO - [IDs] page 16: +20 mới, tổng 711
+2026-06-04 21:40:13,284 - INFO - [IDs] page 17: +18 mới, tổng 729
+2026-06-04 21:40:15,672 - INFO - [IDs] page 18: +19 mới, tổng 748
+2026-06-04 21:40:18,225 - INFO - [IDs] page 19: +20 mới, tổng 768
+2026-06-04 21:40:20,711 - INFO - [IDs] page 20: +20 mới, tổng 788
+2026-06-04 21:40:22,348 - INFO - Existing raw records: 403
+2026-06-04 21:40:22,348 - INFO - Need crawl: 385
+2026-06-04 21:40:53,097 - INFO - [RAW] checkpoint 20/385, tổng lưu 423
+2026-06-04 21:41:26,873 - INFO - [RAW] checkpoint 40/385, tổng lưu 443
+2026-06-04 21:41:56,813 - INFO - [RAW] checkpoint 60/385, tổng lưu 463
+2026-06-04 21:42:26,795 - INFO - [RAW] checkpoint 80/385, tổng lưu 483
+2026-06-04 21:42:55,083 - INFO - [RAW] checkpoint 100/385, tổng lưu 503
+2026-06-04 21:43:24,284 - INFO - [RAW] checkpoint 120/385, tổng lưu 523
+2026-06-04 21:43:55,338 - INFO - [RAW] checkpoint 140/385, tổng lưu 543
+2026-06-04 21:44:27,842 - INFO - [RAW] checkpoint 160/385, tổng lưu 563
+2026-06-04 21:44:59,216 - INFO - [RAW] checkpoint 180/385, tổng lưu 583
+2026-06-04 21:45:27,570 - INFO - [RAW] checkpoint 200/385, tổng lưu 603
+2026-06-04 21:45:55,321 - INFO - [RAW] checkpoint 220/385, tổng lưu 623
+2026-06-04 21:46:24,279 - INFO - [RAW] checkpoint 240/385, tổng lưu 643
+2026-06-04 21:46:52,823 - INFO - [RAW] checkpoint 260/385, tổng lưu 663
+2026-06-04 21:47:20,488 - INFO - [RAW] checkpoint 280/385, tổng lưu 683
+2026-06-04 21:47:50,821 - INFO - [RAW] checkpoint 300/385, tổng lưu 703
+2026-06-04 21:48:19,797 - INFO - [RAW] checkpoint 320/385, tổng lưu 723
+2026-06-04 21:48:48,166 - INFO - [RAW] checkpoint 340/385, tổng lưu 743
+2026-06-04 21:49:18,880 - INFO - [RAW] checkpoint 360/385, tổng lưu 763
+2026-06-04 21:49:48,488 - INFO - [RAW] checkpoint 380/385, tổng lưu 783
+2026-06-04 21:49:57,316 - INFO - Finished raw records: 788
+2026-06-04 21:50:03,397 - INFO - Raw dataframe shape: (788, 14)
+2026-06-04 21:50:04,229 - INFO - Cleaned rows: 787
+2026-06-04 21:50:04,229 - INFO - Sale rows: 540
+2026-06-04 21:50:04,229 - INFO - Rent rows: 247
+2026-06-04 21:50:04,243 - INFO - PIPELINE COMPLETED
