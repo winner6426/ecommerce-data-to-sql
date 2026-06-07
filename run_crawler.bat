@@ -1,7 +1,7 @@
 @echo off
 
-cd /d "D:\ecommerce-data-to-sql\Crawler"
+cd /d "D:\ecommerce-data-to-sql"
 
-python crawl.py
+python Crawler\crawl.py
 
 pause

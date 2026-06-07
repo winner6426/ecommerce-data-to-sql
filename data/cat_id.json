@@ -1,135 +1,135 @@
 {
-    "code": "SUCCESS",
-    "categories": [
-        {
-            "cat_id": 1000,
-            "cat_icon": "https://static.chotot.com/storage/chapy-pro/newcats/v12/1000.png",
-            "cat_name": "Bất động sản",
-            "link": "mua-ban-bat-dong-san",
-            "is_new": false,
-            "position": 1
-        },
-        {
-            "cat_id": 13000,
-            "cat_icon": "https://static.chotot.com/storage/chapy-pro/newcats/v12/13000.png",
-            "cat_name": "Việc làm",
-            "link": "viec-lam",
-            "is_new": false,
-            "position": 2
-        },
-        {
-            "cat_id": 2000,
-            "cat_icon": "https://static.chotot.com/storage/chapy-pro/newcats/v12/2000.png",
-            "cat_name": "Xe cộ",
-            "link": "mua-ban-xe",
-            "is_new": false,
-            "position": 3
-        },
-        {
-            "cat_id": 5000,
-            "cat_icon": "https://static.chotot.com/storage/chapy-pro/newcats/v12/5000.png",
-            "cat_name": "Đồ điện tử",
-            "link": "do-dien-tu",
-            "is_new": false,
-            "position": 4
-        },
-        {
-            "cat_id": 12000,
-            "cat_icon": "https://static.chotot.com/storage/chapy-pro/newcats/v12/12000.png",
-            "cat_name": "Thú cưng",
-            "link": "mua-ban-thu-cung",
-            "is_new": false,
-            "position": 5
-        },
-        {
-            "cat_id": 9000,
-            "cat_icon": "https://static.chotot.com/storage/chapy-pro/newcats/v12/9000.png",
-            "cat_name": "Tủ lạnh, máy lạnh, máy giặt",
-            "link": "mua-ban-tu-lanh-may-lanh-may-giat",
-            "is_new": false,
-            "position": 6
-        },
-        {
-            "cat_id": 14000,
-            "cat_icon": "https://static.chotot.com/storage/chapy-pro/newcats/v12/14000.png",
-            "cat_name": "Đồ gia dụng, nội thất, cây cảnh",
-            "link": "mua-ban-do-gia-dung-noi-that-cay-canh",
-            "is_new": false,
-            "position": 7
-        },
-        {
-            "cat_id": 8000,
-            "cat_icon": "https://static.chotot.com/storage/chapy-pro/newcats/v12/8000.png",
-            "cat_name": "Đồ dùng văn phòng, công nông nghiệp",
-            "link": "mua-ban-do-dung-van-phong-cong-nong-nghiep",
-            "is_new": false,
-            "position": 8
-        },
-        {
-            "cat_id": 4000,
-            "cat_icon": "https://static.chotot.com/storage/chapy-pro/newcats/v12/4000.png",
-            "cat_name": "Giải trí, Thể thao, Sở thích",
-            "link": "mua-ban-giai-tri-the-thao-so-thich",
-            "is_new": false,
-            "position": 9
-        },
-        {
-            "cat_id": 3000,
-            "cat_icon": "https://static.chotot.com/storage/chapy-pro/newcats/v12/3000.png",
-            "cat_name": "Thời trang, Đồ dùng cá nhân",
-            "link": "mua-ban-thoi-trang-do-dung-ca-nhan",
-            "is_new": false,
-            "position": 10
-        },
-        {
-            "cat_id": 11000,
-            "cat_icon": "https://static.chotot.com/storage/chapy-pro/newcats/v12/11000.png",
-            "cat_name": "Mẹ và bé",
-            "link": "mua-ban-do-dung-me-va-be",
-            "is_new": false,
-            "position": 11
-        },
-        {
-            "cat_id": 7000,
-            "cat_icon": "https://static.chotot.com/storage/chapy-pro/newcats/v12/7000.png",
-            "cat_name": "Đồ ăn, thực phẩm và các loại khác",
-            "link": "mua-ban-do-an-thuc-pham-va-cac-loai-khac",
-            "is_new": false,
-            "position": 12
-        },
-        {
-            "cat_id": 6000,
-            "cat_icon": "https://static.chotot.com/storage/chapy-pro/newcats/v12/6000.png",
-            "cat_name": "Dịch vụ, Du lịch",
-            "link": "dich-vu-du-lich",
-            "is_new": false,
-            "position": 13
-        },
-        {
-            "cat_id": 15000,
-            "cat_icon": "https://static.chotot.com/storage/chapy-pro/newcats/v12/15000.png",
-            "cat_name": "Dịch vụ chăm sóc nhà cửa",
-            "link": "dich-vu-cham-soc-nha-cua",
-            "is_new": true,
-            "position": 14
-        }
-    ],
-    "default_categories": {
-        "all": {
-            "cat_id": 0,
-            "cat_icon": "https://static.chotot.com/storage/chapy-pro/newcats/v12/tat-ca-danh-muc.png",
-            "cat_name": "Tất cả danh mục",
-            "link": "mua-ban",
-            "is_new": false,
-            "position": 16
-        },
-        "giveaway": {
-            "cat_id": 0,
-            "cat_icon": "https://static.chotot.com/storage/chapy-pro/newcats/v12/cho-tang-mien-phi.png",
-            "cat_name": "Cho tặng miễn phí",
-            "link": "mua-ban?giveaway=true",
-            "is_new": false,
-            "position": 15
-        }
+  "code": "SUCCESS",
+  "categories": [
+    {
+      "cat_id": 1000,
+      "cat_icon": "https://static.chotot.com/storage/chapy-pro/newcats/v12/1000.png",
+      "cat_name": "Bất động sản",
+      "link": "mua-ban-bat-dong-san",
+      "is_new": false,
+      "position": 1
+    },
+    {
+      "cat_id": 13000,
+      "cat_icon": "https://static.chotot.com/storage/chapy-pro/newcats/v12/13000.png",
+      "cat_name": "Việc làm",
+      "link": "viec-lam",
+      "is_new": false,
+      "position": 2
+    },
+    {
+      "cat_id": 2000,
+      "cat_icon": "https://static.chotot.com/storage/chapy-pro/newcats/v12/2000.png",
+      "cat_name": "Xe cộ",
+      "link": "mua-ban-xe",
+      "is_new": false,
+      "position": 3
+    },
+    {
+      "cat_id": 5000,
+      "cat_icon": "https://static.chotot.com/storage/chapy-pro/newcats/v12/5000.png",
+      "cat_name": "Đồ điện tử",
+      "link": "do-dien-tu",
+      "is_new": false,
+      "position": 4
+    },
+    {
+      "cat_id": 12000,
+      "cat_icon": "https://static.chotot.com/storage/chapy-pro/newcats/v12/12000.png",
+      "cat_name": "Thú cưng",
+      "link": "mua-ban-thu-cung",
+      "is_new": false,
+      "position": 5
+    },
+    {
+      "cat_id": 9000,
+      "cat_icon": "https://static.chotot.com/storage/chapy-pro/newcats/v12/9000.png",
+      "cat_name": "Tủ lạnh, máy lạnh, máy giặt",
+      "link": "mua-ban-tu-lanh-may-lanh-may-giat",
+      "is_new": false,
+      "position": 6
+    },
+    {
+      "cat_id": 14000,
+      "cat_icon": "https://static.chotot.com/storage/chapy-pro/newcats/v12/14000.png",
+      "cat_name": "Đồ gia dụng, nội thất, cây cảnh",
+      "link": "mua-ban-do-gia-dung-noi-that-cay-canh",
+      "is_new": false,
+      "position": 7
+    },
+    {
+      "cat_id": 8000,
+      "cat_icon": "https://static.chotot.com/storage/chapy-pro/newcats/v12/8000.png",
+      "cat_name": "Đồ dùng văn phòng, công nông nghiệp",
+      "link": "mua-ban-do-dung-van-phong-cong-nong-nghiep",
+      "is_new": false,
+      "position": 8
+    },
+    {
+      "cat_id": 4000,
+      "cat_icon": "https://static.chotot.com/storage/chapy-pro/newcats/v12/4000.png",
+      "cat_name": "Giải trí, Thể thao, Sở thích",
+      "link": "mua-ban-giai-tri-the-thao-so-thich",
+      "is_new": false,
+      "position": 9
+    },
+    {
+      "cat_id": 3000,
+      "cat_icon": "https://static.chotot.com/storage/chapy-pro/newcats/v12/3000.png",
+      "cat_name": "Thời trang, Đồ dùng cá nhân",
+      "link": "mua-ban-thoi-trang-do-dung-ca-nhan",
+      "is_new": false,
+      "position": 10
+    },
+    {
+      "cat_id": 11000,
+      "cat_icon": "https://static.chotot.com/storage/chapy-pro/newcats/v12/11000.png",
+      "cat_name": "Mẹ và bé",
+      "link": "mua-ban-do-dung-me-va-be",
+      "is_new": false,
+      "position": 11
+    },
+    {
+      "cat_id": 7000,
+      "cat_icon": "https://static.chotot.com/storage/chapy-pro/newcats/v12/7000.png",
+      "cat_name": "Đồ ăn, thực phẩm và các loại khác",
+      "link": "mua-ban-do-an-thuc-pham-va-cac-loai-khac",
+      "is_new": false,
+      "position": 12
+    },
+    {
+      "cat_id": 6000,
+      "cat_icon": "https://static.chotot.com/storage/chapy-pro/newcats/v12/6000.png",
+      "cat_name": "Dịch vụ, Du lịch",
+      "link": "dich-vu-du-lich",
+      "is_new": false,
+      "position": 13
+    },
+    {
+      "cat_id": 15000,
+      "cat_icon": "https://static.chotot.com/storage/chapy-pro/newcats/v12/15000.png",
+      "cat_name": "Dịch vụ chăm sóc nhà cửa",
+      "link": "dich-vu-cham-soc-nha-cua",
+      "is_new": true,
+      "position": 14
     }
+  ],
+  "default_categories": {
+    "all": {
+      "cat_id": 0,
+      "cat_icon": "https://static.chotot.com/storage/chapy-pro/newcats/v12/tat-ca-danh-muc.png",
+      "cat_name": "Tất cả danh mục",
+      "link": "mua-ban",
+      "is_new": false,
+      "position": 16
+    },
+    "giveaway": {
+      "cat_id": 0,
+      "cat_icon": "https://static.chotot.com/storage/chapy-pro/newcats/v12/cho-tang-mien-phi.png",
+      "cat_name": "Cho tặng miễn phí",
+      "link": "mua-ban?giveaway=true",
+      "is_new": false,
+      "position": 15
+    }
+  }
 }
