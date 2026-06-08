@@ -79,38 +79,83 @@ def category_group(category_id: int | None) -> str:
     return "product"
 
 
-def flatten_params(params: Any) -> dict[str, Any]:
-    flattened = {}
-    if not isinstance(params, list):
-        return flattened
+def param_value(param: dict) -> Any:
+    for key in ["value", "value_name", "formatted_value", "display_value", "text", "name"]:
+        value = param.get(key)
+        if value not in (None, "", [], {}):
+            return value
+    return None
 
-    for param in params:
-        if not isinstance(param, dict):
+
+def iter_param_items(params: Any):
+    if isinstance(params, dict):
+        for fallback_key, param in params.items():
+            if isinstance(param, dict):
+                key = param.get("id") or param.get("key") or param.get("name") or fallback_key
+                value = param_value(param)
+            else:
+                key = fallback_key
+                value = param
+            if key and value not in (None, "", [], {}):
+                yield str(key), value
+        return
+
+    if isinstance(params, list):
+        for param in params:
+            if not isinstance(param, dict):
+                continue
+            key = param.get("id") or param.get("key") or param.get("name")
+            value = param_value(param)
+            if key and value not in (None, "", [], {}):
+                yield str(key), value
+
+
+def flatten_params(params: Any) -> dict[str, Any]:
+    return {key: value for key, value in iter_param_items(params)}
+
+
+def collect_params(*sources: dict) -> dict[str, Any]:
+    flattened = {}
+    param_fields = ["ad_params", "parameters", "params", "parameter", "param", "ad_param"]
+
+    for source in sources:
+        if not isinstance(source, dict):
             continue
-        key = param.get("id") or param.get("key") or param.get("name")
-        value = param.get("value")
-        if key and value not in (None, ""):
-            flattened[str(key)] = value
+        for field in param_fields:
+            for key, value in iter_param_items(source.get(field)):
+                flattened[key] = value
+
     return flattened
 
 
-def first_value(ad: dict, params: dict, names: list[str]) -> Any:
+def first_value(ad: dict, params: dict, names: list[str], prefer_params: bool = True) -> Any:
     for name in names:
+        if prefer_params and params.get(name) not in (None, ""):
+            return params.get(name)
         if ad.get(name) not in (None, ""):
             return ad.get(name)
-        if params.get(name) not in (None, ""):
+        if not prefer_params and params.get(name) not in (None, ""):
             return params.get(name)
     return None
 
 
-def infer_listing_type(title: str | None, ad_type: Any, params: dict) -> str | None:
-    text = f"{title or ''} {ad_type or ''} {params.get('type') or ''}".lower()
-    if "cho thue" in text or "cho thuê" in text or "thuê" in text or "rent" in text:
+def infer_listing_type(
+    title: str | None,
+    ad_type: Any,
+    params: dict,
+    price_text: str | None = None,
+) -> str | None:
+    text = f"{title or ''} {ad_type or ''} {params.get('type') or ''} {price_text or ''}".lower()
+    if "cho thue" in text or "cho thuê" in text or "thuê" in text or "rent" in text or "/tháng" in text:
         return "rent"
     if "can mua" in text or "cần mua" in text:
         return "wanted"
     if "can ban" in text or "cần bán" in text or "bán" in text:
         return "sale"
+    if ad_type == "s":
+        return "sale"
+    if ad_type == "u":
+        return "rent"
     return None
 
 

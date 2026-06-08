@@ -1,5 +1,4 @@
 import json
-
 import pandas as pd
 
 from .config import DETAIL_COLUMNS
@@ -7,8 +6,8 @@ from .utils import (
     area_group,
     category_group,
     clean_text,
+    collect_params,
     first_value,
-    flatten_params,
     infer_listing_type,
     normalize_sqlite_values,
     price_group,
@@ -60,7 +59,7 @@ def transform_records(raw_records: list[dict]) -> tuple[pd.DataFrame, pd.DataFra
         root_id = root_category_id(category_id)
         partition_category_id = raw_record.get("partition_category_id") or root_id
         partition_date = raw_record.get("partition_date")
-        params = flatten_params(ad.get("params"))
+        params = collect_params(payload, ad)
         group = category_group(category_id)
         price = to_number(ad.get("price"))
         title = clean_text(ad.get("subject"))
@@ -142,7 +141,7 @@ def append_detail_row(
             {
                 "list_id": list_id,
                 "property_type": first_value(ad, params, ["house_type", "apartment_type", "commercial_type", "land_type", "category_name"]),
-                "listing_type": infer_listing_type(title, ad.get("type"), params),
+                "listing_type": infer_listing_type(title, ad.get("type"), params, ad.get("price_string")),
                 "area_m2": area_m2,
                 "living_area_m2": to_number(ad.get("living_size")),
                 "width_m": to_number(first_value(ad, params, ["width"])),
@@ -162,7 +161,7 @@ def append_detail_row(
         detail_rows["vehicle_details"].append(
             {
                 "list_id": list_id,
-                "vehicle_type": first_value(ad, params, ["vehicle_type", "car_type", "motorbike_type"]),
+                "vehicle_type": first_value(ad, params, ["vehicle_type", "car_type", "motorbike_type", "motorbiketype", "category_name"]),
                 "brand": first_value(ad, params, ["carbrand", "motorbikebrand", "brand"]),
                 "model": first_value(ad, params, ["carmodel", "motorbikemodel", "model"]),
                 "year": to_int(first_value(ad, params, ["mfdate", "regdate", "year"])),
@@ -170,8 +169,7 @@ def append_detail_row(
                 "fuel": first_value(ad, params, ["fuel", "fuel_type"]),
                 "transmission": first_value(ad, params, ["gearbox", "transmission"]),
                 "condition": first_value(ad, params, ["condition_ad", "item_condition"]),
-                "color": first_value(ad, params, ["color"]),
-                "origin": first_value(ad, params, ["origin"]),
+                "owner_count": to_int(first_value(ad, params, ["number_of_owners"])),
             }
         )
     elif group == "job":
@@ -179,36 +177,41 @@ def append_detail_row(
             {
                 "list_id": list_id,
                 "job_type": first_value(ad, params, ["job_type", "job_kind"]),
-                "position": first_value(ad, params, ["job_position", "position"]),
+                "job_title": title,
                 "company_name": first_value(ad, params, ["company_name"]),
                 "salary_min": to_number(first_value(ad, params, ["salary_min", "min_salary"])),
                 "salary_max": to_number(first_value(ad, params, ["salary_max", "max_salary"])),
-                "salary_text": first_value(ad, params, ["salary", "salary_string"]),
-                "experience": first_value(ad, params, ["experience"]),
-                "education": first_value(ad, params, ["education"]),
-                "gender": first_value(ad, params, ["gender"]),
-                "work_location": first_value(ad, params, ["working_location", "work_location"]),
+                "salary_text": first_value(ad, params, ["salary", "salary_string", "price_string"]),
+                "contract_type": first_value(ad, params, ["contract_type"]),
+                "preferred_gender": first_value(ad, params, ["preferred_gender", "gender"]),
+                "work_location": first_value(ad, params, ["working_location", "work_location", "address", "area_name"]),
+                "urgent": bool(ad.get("job_urgent_recruit_enabled")) if ad.get("job_urgent_recruit_enabled") is not None else None,
             }
         )
     elif group == "service":
         detail_rows["service_details"].append(
             {
                 "list_id": list_id,
-                "service_type": first_value(ad, params, ["service_type", "specific_service_offered"]),
-                "provider_type": first_value(ad, params, ["provider_type"]),
+                "service_type": first_value(ad, params, ["service_type", "specific_service_offered", "category_name"]),
                 "price_unit": first_value(ad, params, ["price_unit", "fee_type"]) or ad.get("fee_type"),
+                "min_price": to_number(ad.get("min_price")),
             }
         )
     else:
         detail_rows["product_details"].append(
             {
                 "list_id": list_id,
-                "product_type": first_value(ad, params, ["product_type", "category_name"]),
-                "brand": first_value(ad, params, ["brand", "phone_brand", "mobile_brand", "laptop_brand"]),
-                "model": first_value(ad, params, ["model", "phone_model", "mobile_model", "laptop_model"]),
-                "condition": first_value(ad, params, ["condition_ad", "item_condition"]),
-                "warranty": first_value(ad, params, ["warranty"]),
-                "color": first_value(ad, params, ["color"]),
-                "origin": first_value(ad, params, ["origin"]),
+                "product_type": first_value(ad, params, ["product_type", "consumer", "itemconsumer", "food_type", "category_name"]),
+                "brand": first_value(ad, params, ["brand", "product_brand", "phone_brand", "mobile_brand", "laptop_brand"]),
+                "model": first_value(ad, params, ["model", "phone_model", "mobile_model", "laptop_model", "tablet_model"]),
+                "condition": first_value(ad, params, ["condition_ad", "condition_ad_name", "item_condition", "elt_condition"]),
+                "warranty": first_value(ad, params, ["warranty", "elt_warranty"]),
+                "material": first_value(ad, params, ["product_material"]),
+                "size": first_value(ad, params, ["product_size"]),
+                "capacity": first_value(ad, params, ["mobile_capacity", "tablet_capacity", "fridgevolume", "airconcapacity", "washingmachineweight", "speaker_capacity", "auvi_resolution"]),
+                "item_type": first_value(ad, params, ["consumer", "itemconsumer", "collection_type", "instrument_type", "product_type"]),
+                "pet_breed": first_value(ad, params, ["pet_breed"]),
+                "pet_age": first_value(ad, params, ["pet_age"]),
+                "food_type": first_value(ad, params, ["food_type"]),
             }
         )
