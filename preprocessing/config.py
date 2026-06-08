@@ -23,6 +23,8 @@ REAL_ESTATE_CATEGORIES = {1000}
 VEHICLE_CATEGORIES = {2000}
 JOB_CATEGORIES = {13000}
 SERVICE_CATEGORIES = {6000, 15000}
+ELECTRONICS_CATEGORIES = {5000, 9000}
+PET_CATEGORIES = {12000}
 
 DETAIL_COLUMNS = {
     "real_estate_details": [
@@ -30,9 +32,6 @@ DETAIL_COLUMNS = {
         "property_type",
         "listing_type",
         "area_m2",
-        "living_area_m2",
-        "width_m",
-        "length_m",
         "rooms",
         "toilets",
         "floors",
@@ -51,9 +50,7 @@ DETAIL_COLUMNS = {
         "year",
         "mileage_km",
         "fuel",
-        "transmission",
         "condition",
-        "owner_count",
     ],
     "job_details": [
         "list_id",
@@ -65,23 +62,30 @@ DETAIL_COLUMNS = {
         "salary_text",
         "contract_type",
         "preferred_gender",
+        "experience",
         "work_location",
         "urgent",
     ],
     "product_details": [
         "list_id",
         "product_type",
+        "condition",
+        "item_type",
+    ],
+    "electronics_details": [
+        "list_id",
+        "electronics_type",
         "brand",
         "model",
         "condition",
         "warranty",
-        "material",
-        "size",
         "capacity",
-        "item_type",
-        "pet_breed",
-        "pet_age",
-        "food_type",
+    ],
+    "pet_details": [
+        "list_id",
+        "pet_type",
+        "breed",
+        "age",
     ],
     "service_details": [
         "list_id",

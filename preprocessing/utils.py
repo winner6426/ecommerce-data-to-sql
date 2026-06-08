@@ -5,7 +5,9 @@ from typing import Any
 import pandas as pd
 
 from .config import (
+    ELECTRONICS_CATEGORIES,
     JOB_CATEGORIES,
+    PET_CATEGORIES,
     REAL_ESTATE_CATEGORIES,
     SERVICE_CATEGORIES,
     VEHICLE_CATEGORIES,
@@ -76,6 +78,10 @@ def category_group(category_id: int | None) -> str:
         return "job"
     if root_id in SERVICE_CATEGORIES:
         return "service"
+    if root_id in ELECTRONICS_CATEGORIES:
+        return "electronics"
+    if root_id in PET_CATEGORIES:
+        return "pet"
     return "product"
 
 
@@ -128,13 +134,17 @@ def collect_params(*sources: dict) -> dict[str, Any]:
     return flattened
 
 
+def has_value(value: Any) -> bool:
+    return value not in (None, "", [], {})
+
+
 def first_value(ad: dict, params: dict, names: list[str], prefer_params: bool = True) -> Any:
     for name in names:
-        if prefer_params and params.get(name) not in (None, ""):
+        if prefer_params and has_value(params.get(name)):
             return params.get(name)
-        if ad.get(name) not in (None, ""):
+        if has_value(ad.get(name)):
             return ad.get(name)
-        if not prefer_params and params.get(name) not in (None, ""):
+        if not prefer_params and has_value(params.get(name)):
             return params.get(name)
     return None
 

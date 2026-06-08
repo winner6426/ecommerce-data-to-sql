@@ -109,6 +109,8 @@ def write_clean_lakehouse(
     ):
         output_dir = clean_partition_dir(category_id, partition_date)
         output_dir.mkdir(parents=True, exist_ok=True)
+        for stale_file in output_dir.glob("*.csv"):
+            stale_file.unlink()
 
         list_ids = set(partition_listings["list_id"].astype(str))
         partition_listings.drop(columns=["raw_json"], errors="ignore").to_csv(
