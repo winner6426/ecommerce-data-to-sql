@@ -1,0 +1,8 @@
+2026-06-07 22:17:03,066 - INFO - Listings: 788
+2026-06-07 22:17:03,066 - INFO - Attributes: 1475
+2026-06-07 22:17:03,066 - INFO - Category groups: {'real_estate': 788}
+2026-06-07 22:17:03,066 - INFO - Partitions: 1
+2026-06-07 22:53:34,032 - INFO - Listings: 1587
+2026-06-07 22:53:34,033 - INFO - Attributes: 2710
+2026-06-07 22:53:34,033 - INFO - Category groups: {'real_estate': 840, 'product': 538, 'service': 89, 'job': 60, 'vehicle': 60}
+2026-06-07 22:53:34,033 - INFO - Partitions: 14
