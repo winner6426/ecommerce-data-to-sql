@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Trợ lý dữ liệu Marketplace</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-mark">SQL</div>
+          <div>
+            <h1>Trợ lý dữ liệu</h1>
+            <p id="healthStatus">Đang kiểm tra kết nối</p>
+          </div>
+        </div>
+
+        <button id="newChatButton" class="new-chat-button">+ Cuộc trò chuyện mới</button>
+
+        <div class="sidebar-section">
+          <p class="section-title">Gợi ý câu hỏi</p>
+          <div id="suggestions" class="suggestions"></div>
+        </div>
+
+        <div class="sidebar-section">
+          <p class="section-title">Công cụ</p>
+          <button id="loadSchemaButton" class="tool-button">Xem cấu trúc dữ liệu</button>
+          <button id="toggleSqlButton" class="tool-button">Mở bảng chạy SQL</button>
+        </div>
+      </aside>
+
+      <main class="chat">
+        <section id="messages" class="messages" aria-live="polite">
+          <article class="message assistant">
+            <div class="avatar">AI</div>
+            <div class="bubble">
+              <p>Xin chào. Bạn có thể hỏi về dữ liệu tin đăng, danh mục, khu vực, giá, bất động sản, xe, việc làm hoặc dịch vụ.</p>
+              <p class="hint">Ví dụ: “Mỗi danh mục gốc có bao nhiêu tin đăng?”</p>
+            </div>
+          </article>
+        </section>
+
+        <section id="detailsPanel" class="details-panel">
+          <div class="detail-card">
+            <div class="detail-header">
+              <h3>SQL đã tạo</h3>
+              <span id="roundCount"></span>
+            </div>
+            <pre id="sqlBox"><code></code></pre>
+          </div>
+
+          <div class="detail-card">
+            <div class="detail-header">
+              <h3>Cấu trúc dữ liệu</h3>
+            </div>
+            <pre id="schemaBox">Bấm “Xem cấu trúc dữ liệu” để tải schema.</pre>
+          </div>
+        </section>
+
+        <form id="askForm" class="composer">
+          <textarea
+            id="questionInput"
+            rows="1"
+            placeholder="Nhập câu hỏi về dữ liệu..."
+            required
+          ></textarea>
+          <label class="round-control" title="Số vòng agent tối đa">
+            <span>Vòng</span>
+            <input id="roundInput" type="number" min="1" max="30" value="10" />
+          </label>
+          <button type="submit" class="send-button" aria-label="Gửi câu hỏi">Gửi</button>
+        </form>
+      </main>
+
+      <aside id="sqlPanel" class="sql-panel">
+        <div class="sql-panel-header">
+          <div>
+            <p>SQL chỉ đọc</p>
+            <h2>Chạy truy vấn</h2>
+          </div>
+          <button id="closeSqlButton" class="ghost-button">Đóng</button>
+        </div>
+        <textarea id="sqlInput" rows="10">SELECT category_group, COUNT(*) AS listings
+FROM listings
+GROUP BY category_group
+ORDER BY listings DESC;</textarea>
+        <button id="runSqlButton" class="run-button">Chạy SQL</button>
+        <div id="queryResult" class="table-wrap"></div>
+      </aside>
+    </div>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>
