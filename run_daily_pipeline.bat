@@ -8,7 +8,7 @@ if not exist "logs" mkdir "logs"
 echo ============================================================>> "logs\scheduler.log"
 echo START %date% %time%>> "logs\scheduler.log"
 
-python -m crawler.main >> "logs\crawler_scheduler.log" 2>&1
+python -m crawler.main --page-end 20 >> "logs\crawler_scheduler.log" 2>&1
 set CRAWLER_EXIT=%ERRORLEVEL%
 echo CRAWLER_EXIT=%CRAWLER_EXIT%>> "logs\scheduler.log"
 
@@ -20,6 +20,15 @@ if not "%CRAWLER_EXIT%"=="0" (
 python -m preprocessor.main >> "logs\preprocess_scheduler.log" 2>&1
 set PREPROCESS_EXIT=%ERRORLEVEL%
 echo PREPROCESS_EXIT=%PREPROCESS_EXIT%>> "logs\scheduler.log"
+
+if not "%PREPROCESS_EXIT%"=="0" (
+  echo STOP preprocess failed %date% %time%>> "logs\scheduler.log"
+  exit /b %PREPROCESS_EXIT%
+)
+
+python cleanup.py --keep-days 30 >> "logs\cleanup_scheduler.log" 2>&1
+set CLEANUP_EXIT=%ERRORLEVEL%
+echo CLEANUP_EXIT=%CLEANUP_EXIT%>> "logs\scheduler.log"
 echo END %date% %time%>> "logs\scheduler.log"
 
-exit /b %PREPROCESS_EXIT%
+exit /b %CLEANUP_EXIT%
