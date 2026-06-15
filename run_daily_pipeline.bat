@@ -8,7 +8,7 @@ if not exist "logs" mkdir "logs"
 echo ============================================================>> "logs\scheduler.log"
 echo START %date% %time%>> "logs\scheduler.log"
 
-python -m Crawler.main >> "logs\crawler_scheduler.log" 2>&1
+python -m crawler.main >> "logs\crawler_scheduler.log" 2>&1
 set CRAWLER_EXIT=%ERRORLEVEL%
 echo CRAWLER_EXIT=%CRAWLER_EXIT%>> "logs\scheduler.log"
 

@@ -1,6 +1,6 @@
 # Ecommerce Data to SQL
 
-Pipeline crawl du lieu Chotot/Nhatot, lam sach thanh lakehouse/SQLite, roi hoi du lieu bang Text2SQL agent chay Vertex AI.
+Pipeline crawl du lieu Chotot, lam sach thanh lakehouse/SQLite, roi hoi du lieu bang Text2SQL agent chay Vertex AI.
 
 ## Setup
 
@@ -70,7 +70,7 @@ python -m text2sql.cli "O Ha Noi, moi hang xe co bao nhieu tin dang?" --max-roun
 API server:
 
 ```bat
-python -m uvicorn text2sql.server:app --host 0.0.0.0 --port 8010 --reload
+python -m uvicorn text2sql.server:app --reload --host 127.0.0.1 --port 8000
 ```
 
 ## SQLite Tables
